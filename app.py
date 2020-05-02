@@ -8,6 +8,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import configparser
+import random
 
 app = Flask(__name__)
 
@@ -61,7 +62,7 @@ def handle_message(event):
         for i in text:
         
             pretty_text += i
-            pretty_text += pretty_note
+            pretty_text += random.choice(pretty_note)
         reply_text = pretty_text
 #如果非以上的選項，就會學你說話
 
