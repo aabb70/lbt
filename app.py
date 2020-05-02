@@ -49,7 +49,7 @@ def handle_message(event):
     elif(text=="機器人"):
         reply_text = "叫我嗎"
     else:
-        reply_text = "https://shopee.tw/search?keyword=",text,"&shop=14084056"
+        reply_text = text
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
