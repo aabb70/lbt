@@ -49,6 +49,10 @@ def handle_message(event):
         reply_text = HP
     elif(text=="美妝保養"):
         reply_text = BT
+    elif(text=="查詢商品")
+        reply_text = f = open(r'C:\Users\denis\Desktop\line-bot-tutorial-master\ass.txt')
+                        f.readlines()
+                        f.close()
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
