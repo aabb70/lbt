@@ -61,7 +61,7 @@ def handle_message(event):
         for i in text:
         
             pretty_text += i
-            pretty_text += random.choice(pretty_note)
+            pretty_text += pretty_note
         reply_text = text
 #如果非以上的選項，就會學你說話
 
