@@ -17,6 +17,7 @@ config.read('config.ini')
 
 line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
+URL = config.get('URL')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -43,8 +44,8 @@ def handle_message(event):
         reply_text = "Hello"
         #Your user ID
 
-    elif(text=="你好"):
-        reply_text = "哈囉"
+    elif(text=="直播連結"):
+        reply_text = URL
     elif(text=="機器人"):
         reply_text = "叫我嗎"
     else:
