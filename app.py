@@ -62,7 +62,7 @@ def handle_message(event):
         
             pretty_text += i
             pretty_text += pretty_note
-        reply_text = text
+        reply_text = pretty_text
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
