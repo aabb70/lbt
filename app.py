@@ -43,6 +43,8 @@ def callback():
 def handle_message(event):
     print(event)
     text=event.message.text
+    pretty_note = '♫♪♬'
+    pretty_text = ''
     if (text=="Hi"):
         reply_text = "Hello"
         #Your user ID
@@ -56,6 +58,10 @@ def handle_message(event):
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
     else:
+        for i in text:
+        
+            pretty_text += i
+            pretty_text += random.choice(pretty_note)
         reply_text = text
 #如果非以上的選項，就會學你說話
 
