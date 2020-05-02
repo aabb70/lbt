@@ -50,9 +50,7 @@ def handle_message(event):
     elif(text=="美妝保養"):
         reply_text = BT
     elif(text=="查詢商品")
-        reply_text = f = open(r'C:\Users\denis\Desktop\line-bot-tutorial-master\ass.txt')
-                        f.readlines()
-                        f.close()
+        reply_text = "有什麼需要的類別可以自行查詢\n美妝保養\n手機\n零食"
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
