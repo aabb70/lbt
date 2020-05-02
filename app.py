@@ -45,7 +45,7 @@ def handle_message(event):
         #Your user ID
 
     elif(text=="直播連結"):
-        reply_text = URL
+        reply_text = 'URL'
     elif(text=="機器人"):
         reply_text = "叫我嗎"
     else:
