@@ -52,7 +52,7 @@ def handle_message(event):
     elif(text=="查詢商品"):
         reply_text = "自己查"
     else:
-        reply_text = "https://shopee.tw/search?keyword=",TextMessage,"&shop=14084056"
+        reply_text = "https://shopee.tw/search?keyword=",(text),"&shop=14084056"
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
