@@ -43,8 +43,6 @@ def callback():
 def handle_message(event):
     print(event)
     text=event.message.text
-    if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
-
     if (text=="Hi"):
         reply_text = "Hello"
         #Your user ID
