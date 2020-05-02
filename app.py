@@ -19,6 +19,8 @@ line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
 HP = config.get('URLS','HP')
 BT = config.get('URLS','BT')
+Phone = config.get('URLS','Phone')
+Snack = config.get('URLS','Snack')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -49,10 +51,12 @@ def handle_message(event):
         reply_text = HP
     elif(text=="美妝保養"):
         reply_text = BT
-    elif(text=="查詢商品"):
-        reply_text = "自己查"
+    elif(text=="手機"):
+        reply_text = Phone
+    elif(text=="零食"):
+        reply_text = Snack
     else:
-        reply_text = "https://shopee.tw/search?keyword=",(text),"&shop=14084056"
+        reply_text = text
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
