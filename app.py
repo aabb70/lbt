@@ -54,7 +54,7 @@ def handle_message(event):
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
     else:
-        reply_text = text
+        reply_message = "https://shopee.tw/search?keyword=",text,"&shop=14084056"
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
