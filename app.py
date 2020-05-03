@@ -60,11 +60,12 @@ def handle_message(event):
                 uri='https://shopee.tw/search?keyword=%E5%90%8B&shop=14084056'
             ),URITemplateAction(
                 label='美妝',
-                uri=' https://shopee.tw/shop/14084056/search?shopCollection=17513740'
+                uri='https://shopee.tw/shop/14084056/search?shopCollection=17513740'
             )
         ]
     )
 )
+
     elif(text=="直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
@@ -82,6 +83,7 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
+    
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
