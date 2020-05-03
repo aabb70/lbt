@@ -40,7 +40,7 @@ def callback():
     return 'OK'
 
 # 處理訊息
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TemplateSendMessage)
 def handle_message(event):
     print(event)
     text=event.message.text
@@ -48,7 +48,7 @@ def handle_message(event):
         
 #如果非以上的選項，就會學你說話
 
-    message = TemplateSendMessage(
+    
     alt_text='Buttons template',
     template=ButtonsTemplate(
         thumbnail_image_url='https://example.com/image.jpg',
