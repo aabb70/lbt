@@ -57,7 +57,7 @@ def handle_message(event):
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
      elif (text == "Buttons Template"):
-        buttons_template = TemplateSendMessage(
+        message = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
             title='這是ButtonsTemplate',
