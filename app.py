@@ -58,35 +58,35 @@ def handle_message(event):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
      elif (text == "Buttons Template"):
         message = TemplateSendMessage(
-        alt_text='Buttons Template',
+        alt_text='Buttons template',
         template=ButtonsTemplate(
-            title='這是ButtonsTemplate',
-            text='ButtonsTemplate可以傳送text,uri',
-            thumbnail_image_url='顯示在開頭的大圖片網址',
-            actions=[
-                MessageTemplateAction(
-                    label='ButtonsTemplate',
-                    text='ButtonsTemplate'
-                ),
-                URITemplateAction(
-                    label='VIDEO1',
-                    uri='影片網址'
-                ),
-                PostbackTemplateAction(
-                    label='postback',
-                    text='postback text',
-                    data='postback1'
-                )
-            ]
-        )
+        thumbnail_image_url='https://example.com/image.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            PostbackTemplateAction(
+                label='postback',
+                text='postback text',
+                data='action=buy&itemid=1'
+            ),
+            MessageTemplateAction(
+                label='message',
+                text='message text'
+            ),
+            URITemplateAction(
+                label='uri',
+                uri='http://example.com/'
+            )
+        ]
     )
+)
+line_bot_api.reply_message(event.reply_token, message)
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
-    line_bot_api.reply_message(event.reply_token, buttons_template)
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
