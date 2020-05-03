@@ -58,7 +58,7 @@ def handle_message(event):
         reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
-    elif text == "查詢商品":
+    elif (text == "查詢商品"):
         buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
@@ -81,14 +81,13 @@ def handle_message(event):
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token, buttons_template):
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
 
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
-
+    line_bot_api.reply_message(event.reply_token, buttons_template)
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
