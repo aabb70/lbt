@@ -61,9 +61,6 @@ def handle_message(event):
             ),URITemplateAction(
                 label='美妝',
                 uri=' https://shopee.tw/shop/14084056/search?shopCollection=17513740'
-            ),URITemplateAction(
-                label='零食',
-                uri=' https://shopee.tw/shop/14084056/search?page=0&shopCollection=30087730'
             )
         ]
     )
