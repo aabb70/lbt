@@ -44,8 +44,6 @@ def callback():
 def handle_message(event):
     print(event)
     text=event.message.text
-    pretty_note = '♫♪♬'
-    pretty_text = ''
     if (text=="Hi"):
         reply_text = "Hello"
         #Your user ID
