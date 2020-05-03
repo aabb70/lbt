@@ -53,8 +53,8 @@ def handle_message(event):
         text='請選擇查詢的類別',
         actions=[
             URITemplateAction(
-                label='吉娃娃',
-                uri='https://2.bp.blogspot.com/-juSspSqB2mo/UF1jQJlaHKI/AAAAAAAAAOo/62CPquAChjA/s1600/9477o2.jpg'
+                label='居家生活',
+                uri='https://shopee.tw/shop/14084056/search?shopCollection=15337481'
             ),URITemplateAction(
                 label='珍珠奶茶',
                 uri='https://2.bp.blogspot.com/-juSspSqB2mo/UF1jQJlaHKI/AAAAAAAAAOo/62CPquAChjA/s1600/9477o2.jpg'
