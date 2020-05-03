@@ -48,7 +48,7 @@ def handle_message(event):
         message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
-        thumbnail_image_url='https://imgur.com/uaCoaSQ',
+        thumbnail_image_url='https://i.imgur.com/uaCoaSQ.png',
         title='查詢商品',
         text='請選擇查詢的類別',
         actions=[
@@ -83,7 +83,7 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
-    
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
