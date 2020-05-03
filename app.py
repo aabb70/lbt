@@ -58,6 +58,30 @@ def handle_message(event):
         reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
+    elif text == "查詢商品":
+        buttons_template = TemplateSendMessage(
+        alt_text='Buttons Template',
+        template=ButtonsTemplate(
+            title='這是ButtonsTemplate',
+            text='ButtonsTemplate可以傳送text,uri',
+            thumbnail_image_url='顯示在開頭的大圖片網址',
+            actions=[
+                URITemplateAction(
+                    label='美妝保養',
+                    uri = HP
+                ),
+                URITemplateAction(
+                    label='手機',
+                    uri= HP
+                ),
+                URITemplateAction(
+                    label='零食',
+                    uri= HP
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, buttons_template)
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
