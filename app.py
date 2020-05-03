@@ -56,30 +56,6 @@ def handle_message(event):
         reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
-     elif (text == "Buttons Template"):
-        message = TemplateSendMessage(
-        alt_text='Buttons template',
-        template=ButtonsTemplate(
-        thumbnail_image_url='https://example.com/image.jpg',
-        title='Menu',
-        text='Please select',
-        actions=[
-            PostbackTemplateAction(
-                label='postback',
-                text='postback text',
-                data='action=buy&itemid=1'
-            ),
-            MessageTemplateAction(
-                label='message',
-                text='message text'
-            ),
-            URITemplateAction(
-                label='uri',
-                uri='http://example.com/'
-            )
-        ]
-    )
-)
     else:
         reply_text = text
 #如果非以上的選項，就會學你說話
