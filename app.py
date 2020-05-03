@@ -45,22 +45,32 @@ def handle_message(event):
     print(event)
     text=event.message.text
     if (text=="Hi"):
-        reply_text = "Hello"
-        #Your user ID
-
-    elif(text=="直播連結"):
-        reply_text = HP
-    elif(text=="美妝保養"):
-        reply_text = BT
-    elif(text=="手機"):
-        reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
-    elif(text=="零食"):
-        reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
-    else:
-        reply_text = text
+        
 #如果非以上的選項，就會學你說話
 
-    message = TextSendMessage(reply_text)
+    message = TemplateSendMessage(
+    alt_text='Buttons template',
+    template=ButtonsTemplate(
+        thumbnail_image_url='https://example.com/image.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            PostbackTemplateAction(
+                label='postback',
+                text='postback text',
+                data='action=buy&itemid=1'
+            ),
+            MessageTemplateAction(
+                label='message',
+                text='message text'
+            ),
+            URITemplateAction(
+                label='uri',
+                uri='http://example.com/'
+            )
+        ]
+    )
+)
     line_bot_api.reply_message(event.reply_token, message)
 import os
 if __name__ == "__main__":
