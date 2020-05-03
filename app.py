@@ -48,7 +48,7 @@ def handle_message(event):
         message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
-        thumbnail_image_url='https://2.bp.blogspot.com/-juSspSqB2mo/UF1jQJlaHKI/AAAAAAAAAOo/62CPquAChjA/s1600/9477o2.jpg',
+        thumbnail_image_url='https://imgur.com/uaCoaSQ',
         title='查詢商品',
         text='請選擇查詢的類別',
         actions=[
@@ -56,11 +56,14 @@ def handle_message(event):
                 label='居家生活',
                 uri='https://shopee.tw/shop/14084056/search?shopCollection=15337481'
             ),URITemplateAction(
-                label='珍珠奶茶',
-                uri='https://2.bp.blogspot.com/-juSspSqB2mo/UF1jQJlaHKI/AAAAAAAAAOo/62CPquAChjA/s1600/9477o2.jpg'
+                label='3C',
+                uri='https://shopee.tw/search?keyword=%E5%90%8B&shop=14084056'
             ),URITemplateAction(
-                label='外星狗',
-                uri='https://2.bp.blogspot.com/-juSspSqB2mo/UF1jQJlaHKI/AAAAAAAAAOo/62CPquAChjA/s1600/9477o2.jpg'
+                label='美妝',
+                uri=' https://shopee.tw/shop/14084056/search?shopCollection=17513740'
+            ),URITemplateAction(
+                label='零食',
+                uri=' https://shopee.tw/shop/14084056/search?page=0&shopCollection=30087730'
             )
         ]
     )
