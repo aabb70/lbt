@@ -66,20 +66,20 @@ def handle_message(event):
     )
 )
     elif(text=="直播連結"):
-        message = TextSendMessage(reply_text)
         reply_text = HP
+        message = TextSendMessage(reply_text)
     elif(text=="美妝保養"):
-        message = TextSendMessage(reply_text)
         reply_text = BT
+        message = TextSendMessage(reply_text)
     elif(text=="手機"):
-        message = TextSendMessage(reply_text)
         reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
+        message = TextSendMessage(reply_text)
     elif(text=="零食"):
-        message = TextSendMessage(reply_text)
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
-    else:
         message = TextSendMessage(reply_text)
+    else:
         reply_text = text
+        message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
 import os
