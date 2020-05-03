@@ -49,8 +49,8 @@ def handle_message(event):
 #如果非以上的選項，就會學你說話
 
     
-    alt_text='Buttons template',
-    template=ButtonsTemplate(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
         thumbnail_image_url='https://example.com/image.jpg',
         title='Menu',
         text='Please select',
