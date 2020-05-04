@@ -80,6 +80,9 @@ def handle_message(event):
     elif(text=="零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
         message = TextSendMessage(reply_text)
+    elif(text=="幫助"):
+        reply_text = "歡迎加入本帳號為好友\n查詢商品點擊下方按鈕即可查看"
+        message = TextSendMessage(reply_text)
     else:
         reply_text = text
         message = TextSendMessage(reply_text)
