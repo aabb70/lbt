@@ -73,7 +73,7 @@ def handle_message(event):
             original_content_url = "https://cdn.discordapp.com/attachments/682086463265177652/707961786938425434/70756594_2871486492880328_5131557763402432512_n.jpg",
             preview_image_url = "https://fairmedia.tw/wp-content/uploads/20191112002764.jpg"
         )
-    elif(text=="@促銷商品")
+    elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
             template=ImageCarouselTemplate(
