@@ -42,9 +42,9 @@ def callback():
 def handle_postback(event):
     backdata = dict(parse_qsl(event.postback.data))
     if backdata.get('action') == 'buy':
-                    sendBack_buy(event, backdata)
-                elif backdata.get('action') == 'sell':
-                    sendBack_sell(event, backdata)
+        sendBack_buy(event, backdata)
+    elif backdata.get('action') == 'sell':
+        sendBack_sell(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
