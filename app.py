@@ -115,21 +115,8 @@ if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
 
-def sendBack_buy(event, backdata):  #處理Postback
-    try:
-        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
-        message = TextSendMessage(  #傳送文字
-            text = text1
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_sell(event, backdata):  #處理Postback
-    try:
-        message = TextSendMessage(  #傳送文字
-            text = '點選的是賣 ' + backdata.get('item')
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+    message = TextSendMessage(  #傳送文字
+        text = '點選的是賣 ' + backdata.get('item')
+    )
+    line_bot_api.reply_message(event.reply_token, message)
