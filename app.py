@@ -83,6 +83,9 @@ def handle_message(event):
     elif(text=="幫助"):
         reply_text = "歡迎加入本帳號為好友\n查詢商品點擊下方按鈕即可查看"
         message = TextSendMessage(reply_text)
+    elif(text=="聯絡方式"):
+        reply_text = "https://reurl.cc/Qd56r0 <-使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV <-使用Facebook粉絲專業聯絡我們"
+        message = TextSendMessage(reply_text)
     else:
         reply_text = text
         message = TextSendMessage(reply_text)
