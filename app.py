@@ -109,14 +109,13 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
-
-import os
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
 def sendBack_sell(event, backdata):  #處理Postback
     message = TextSendMessage(  #傳送文字
         text = '點選的是賣 ' + backdata.get('item')
     )
     line_bot_api.reply_message(event.reply_token, message)
+
+import os
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
