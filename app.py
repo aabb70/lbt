@@ -75,24 +75,22 @@ def handle_message(event):
         )
     elif(text=="@促銷商品")
         message = TemplateSendMessage(
-            alt_text='按鈕樣板',
-            template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',  #顯示的圖片
-                title='按鈕樣版示範',  #主標題
-                text='請選擇：',  #副標題
-                actions=[
-                    MessageTemplateAction(  #顯示文字計息
-                        label='文字訊息',
-                        text='@購買披薩'
+            alt_text='圖片轉盤樣板',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/4QfKuz1.png',
+                        action=MessageTemplateAction(
+                            label='文字訊息',
+                            text='賣披薩'
+                        )
                     ),
-                    URITemplateAction(  #開啟網頁
-                        label='連結網頁',
-                        uri='http://www.e-happy.com.tw'
-                    ),
-                    PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
-                        label='回傳訊息',  #按鈕文字
-                        #text='@購買披薩',  #顯示文字計息
-                        data='action=buy'  #Postback資料
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/qaAdBkR.png',
+                        action=PostbackTemplateAction(
+                            label='回傳訊息',
+                            data='action=sell&item=飲料'
+                        )
                     )
                 ]
             )
