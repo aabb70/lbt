@@ -8,7 +8,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 import random
-import t1
 
 app = Flask(__name__)
 
@@ -91,7 +90,6 @@ def handle_message(event):
                         action=PostbackTemplateAction(
                             label='回傳訊息',
                             data='action=sell&item=飲料'
-                            text = '點選的是賣 ' + backdata.get('item')
                         )
                     )
                 ]
@@ -116,3 +114,12 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+    
+def sendBack_sell(event, backdata):  #處理Postback
+    try:
+        message = TextSendMessage(  #傳送文字
+            text = '點選的是賣 ' + backdata.get('item')
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
