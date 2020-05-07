@@ -70,23 +70,38 @@ def handle_message(event):
 
     elif(text=="@熱門商品"):
         message = ImageSendMessage (
-            original_content_url = "https://vignette.wikia.nocookie.net/bahapedia/images/e/ef/025c3937969d2ff9591374cb6dcd0cad.JPG/revision/latest/top-crop/width/360/height/450?cb=20180806122947&path-prefix=zh",
+            original_content_url = "https://cdn.discordapp.com/attachments/682086463265177652/707961786938425434/70756594_2871486492880328_5131557763402432512_n.jpg",
             preview_image_url = "https://fairmedia.tw/wp-content/uploads/20191112002764.jpg"
+        )
+    elif(text=="@促銷商品")
+        message = TemplateSendMessage(
+            alt_text='按鈕樣板',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',  #顯示的圖片
+                title='按鈕樣版示範',  #主標題
+                text='請選擇：',  #副標題
+                actions=[
+                    MessageTemplateAction(  #顯示文字計息
+                        label='文字訊息',
+                        text='@購買披薩'
+                    ),
+                    URITemplateAction(  #開啟網頁
+                        label='連結網頁',
+                        uri='http://www.e-happy.com.tw'
+                    ),
+                    PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
+                        label='回傳訊息',  #按鈕文字
+                        #text='@購買披薩',  #顯示文字計息
+                        data='action=buy'  #Postback資料
+                    ),
+                ]
+            )
         )
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
-    elif(text=="@美妝保養"):
-        reply_text = BT
-        message = TextSendMessage(reply_text)
-    elif(text=="@手機"):
-        reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
-        message = TextSendMessage(reply_text)
-    elif(text=="@零食"):
-        reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
-        message = TextSendMessage(reply_text)
     elif(text=="@幫助"):
-        reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看"
+        reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n\n在對話欄輸入'@熱門商品'即可看到最熱銷商品"
         message = TextSendMessage(reply_text)
     elif(text=="@聯絡方式"):
         reply_text = "https://reurl.cc/Qd56r0\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://reurl.cc/yZDe2l\n↑使用Instagram來聯絡我們"
