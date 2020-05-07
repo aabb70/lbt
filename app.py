@@ -91,6 +91,7 @@ def handle_message(event):
                         action=PostbackTemplateAction(
                             label='回傳訊息',
                             data='action=sell&item=飲料'
+                            text = '點選的是賣 ' + backdata.get('item')
                         )
                     )
                 ]
