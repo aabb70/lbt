@@ -38,7 +38,7 @@ def callback():
         abort(400)
     return 'OK'
 
-@handLer.add(PostbackEvent)
+@handler.add(PostbackEvent)
 def handle_postback(event):
     backdata = dict(parse_qsl(event.postback.data))
     if backdata.get('action') == 'buy':
