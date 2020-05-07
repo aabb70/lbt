@@ -68,6 +68,11 @@ def handle_message(event):
     )
 )
 
+    elif(text=="@熱門商品"):
+        message = ImageSendMessage (
+            original_content_url = "https://vignette.wikia.nocookie.net/bahapedia/images/e/ef/025c3937969d2ff9591374cb6dcd0cad.JPG/revision/latest/top-crop/width/360/height/450?cb=20180806122947&path-prefix=zh"
+            preview_image_url = "https://fairmedia.tw/wp-content/uploads/20191112002764.jpg"
+        )
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
