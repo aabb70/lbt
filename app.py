@@ -37,6 +37,12 @@ def callback():
         abort(400)
     return 'OK'
 
+if isinstance(event, PostbackEvent):  #PostbackTemplateAction觸發此事件
+                backdata = dict(parse_qsl(event.postback.data))  #取得Postback資料
+                if backdata.get('action') == 'buy':
+                    func.sendBack_buy(event, backdata)
+                elif backdata.get('action') == 'sell':
+                    func.sendBack_sell(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
