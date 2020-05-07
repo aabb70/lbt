@@ -7,7 +7,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import configparser
-import views
 
 app = Flask(__name__)
 
@@ -37,6 +36,17 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@csrf_exempt
+def callback(request):
+        for event in events:
+            if isinstance(event, PostbackEvent):  #PostbackTemplateAction觸發此事件
+                backdata = dict(parse_qsl(event.postback.data))  #取得Postback資料
+                if backdata.get('action') == 'buy':
+                    sendBack_buy(event, backdata)
+                elif backdata.get('action') == 'sell':
+                    sendBack_sell(event, backdata)
+
+        return HttpResponse()
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -109,6 +119,16 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
+def sendBack_buy(event, backdata):  #處理Postback
+    try:
+        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
+        text1 += '\n(可將處理程式寫在此處。)'
+        message = TextSendMessage(  #傳送文字
+            text = text1
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_sell(event, backdata):  #處理Postback
     message = TextSendMessage(  #傳送文字
         text = '點選的是賣 ' + backdata.get('item')
