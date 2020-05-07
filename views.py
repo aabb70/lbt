@@ -4,6 +4,10 @@ from linebot.models import MessageEvent, TextMessage, PostbackEvent
 from urllib.parse import parse_qsl
 import configparser
 
+# 讀取config
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 parser = WebhookHandler(config.get('line-bot', 'channel_secret'))
 
