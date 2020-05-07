@@ -7,7 +7,8 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import configparser
-import views
+from urllib.parse import parse_qsl
+
 app = Flask(__name__)
 
 # 讀取config
@@ -37,6 +38,13 @@ def callback():
         abort(400)
     return 'OK'
 
+@handLer.add(PostbackEvent)
+def handle_postback(event):
+    backdata = dict(parse_qsl(event.postback.data))
+    if backdata.get('action') == 'buy':
+                    sendBack_buy(event, backdata)
+                elif backdata.get('action') == 'sell':
+                    sendBack_sell(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
