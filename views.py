@@ -13,7 +13,6 @@ parser = WebhookHandler(config.get('line-bot', 'channel_secret'))
 
 @csrf_exempt
 def callback(request):
-        for event in events:
             if isinstance(event, PostbackEvent):  #PostbackTemplateAction觸發此事件
                 backdata = dict(parse_qsl(event.postback.data))  #取得Postback資料
                 if backdata.get('action') == 'buy':
