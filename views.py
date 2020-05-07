@@ -19,9 +19,6 @@ def callback(request):
 
         return HttpResponse()
 
-    else:
-        return HttpResponseBadRequest()
-
 def sendBack_buy(event, backdata):  #處理Postback
     try:
         text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
