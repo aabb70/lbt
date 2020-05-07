@@ -7,7 +7,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import configparser
-import random
 import views
 
 app = Flask(__name__)
