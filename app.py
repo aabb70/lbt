@@ -93,7 +93,7 @@ def handle_message(event):
                         label='回傳訊息',  #按鈕文字
                         #text='@購買披薩',  #顯示文字計息
                         data='action=buy'  #Postback資料
-                    ),
+                    )
                 ]
             )
         )
