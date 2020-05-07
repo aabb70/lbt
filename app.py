@@ -43,7 +43,7 @@ def callback():
 def handle_message(event):
     print(event)
     text=event.message.text
-    if (text=="查詢商品"):
+    if (text=="@查詢商品"):
         message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
@@ -68,22 +68,22 @@ def handle_message(event):
     )
 )
 
-    elif(text=="直播連結"):
+    elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
-    elif(text=="美妝保養"):
+    elif(text=="@美妝保養"):
         reply_text = BT
         message = TextSendMessage(reply_text)
-    elif(text=="手機"):
+    elif(text=="@手機"):
         reply_text = "https://shopee.tw/search?keyword=%E6%89%8B%E6%A9%9F&shop=14084056"
         message = TextSendMessage(reply_text)
-    elif(text=="零食"):
+    elif(text=="@零食"):
         reply_text = "https://shopee.tw/shop/14084056/search?shopCollection=3801770"
         message = TextSendMessage(reply_text)
-    elif(text=="幫助"):
+    elif(text=="@幫助"):
         reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'聯絡方式'即可查看"
         message = TextSendMessage(reply_text)
-    elif(text=="聯絡方式"):
+    elif(text=="@聯絡方式"):
         reply_text = "https://reurl.cc/Qd56r0\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://reurl.cc/yZDe2l\n↑使用Instagram來聯絡我們"
         message = TextSendMessage(reply_text)
     else:
