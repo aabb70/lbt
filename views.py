@@ -3,8 +3,8 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, PostbackEvent
 from urllib.parse import parse_qsl
 
-line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
-parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
+line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
+parser = WebhookHandler(config.get('line-bot', 'channel_secret'))
 
 @csrf_exempt
 def callback(request):
