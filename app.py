@@ -45,7 +45,7 @@ def sendQuickreply(event):  #快速選單
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="營業時間", data='action=QA1&QS1= ')
+                        action=PostbackTemplateAction(label="營業時間", data='action=QA1&QS1=123')
                     ),
                     QuickReplyButton(
                         action=MessageAction(label="Java", text="Java")
