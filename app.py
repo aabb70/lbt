@@ -45,7 +45,7 @@ def sendQuickreply(event):  #快速選單
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="營業時間", data='action=QA')
+                        action=PostbackTemplateAction(label="營業時間", data='action=QA1&item=')
                     ),
                     QuickReplyButton(
                         action=MessageAction(label="Java", text="Java")
@@ -142,7 +142,7 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
-def sendBack_QA(event, backdata):  #處理Postback
+def sendBack_QA1(event, backdata):  #處理Postback
     try:
         text1 = '週一~週五 14:00-22:00 週六 15:00-20:00 週日與例假日不定時公休,如需面交自取可先來電(02)2388-8488洽詢。'
         message = TextSendMessage(  #傳送文字
