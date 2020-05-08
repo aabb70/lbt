@@ -41,20 +41,20 @@ def callback():
 def sendQuickreply(event):  #快速選單
     try:
         message = TextSendMessage(
-            text='請選擇最喜歡的程式語言',
+            text='請選擇您的問題',
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="營業時間", data='action=QA1&QS1=123')
+                        action=PostbackTemplateAction(label="營業時間", data='action=QA1')
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="Java", text="Java")
+                        action=PostbackTemplateAction(label="購買須知", data='action=QA2')
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="C#", text="C#")
+                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="Basic", text="Basic")
+                        action=PostbackTemplateAction(label="門市資訊", data='action=QA4')
                     ),
                 ]
             )
@@ -69,6 +69,12 @@ def handle_postback(event):
         sendBack_QA1(event, backdata)
     elif backdata.get('action') == 'sell':
         sendBack_sell(event, backdata)
+    elif backdata.get('action') == 'QA2':
+        sendBack_QA2(event, backdata)
+    elif backdata.get('action') == 'QA3':
+        sendBack_QA3(event, backdata)
+    elif backdata.get('action') == 'QA4':
+        sendBack_QA4(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -152,30 +158,29 @@ def sendBack_QA1(event, backdata):  #處理Postback
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_QA2(event, backdata):  #處理Postback
     try:
-        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
         message = TextSendMessage(  #傳送文字
-            text = text1
+            text = "庫存變動快,網頁標示之尚餘數量不代表即時庫存量,請多多詢問有無現貨。"
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_QA3(event, backdata):  #處理Postback
     try:
-        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
         message = TextSendMessage(  #傳送文字
-            text = text1
+            text = "一般宅配、超商取貨、到店自取\n若需來店自取也請抽空來電告知取貨時間,以免臨時缺貨而擔誤您保貴的時間\n本店位於台北市萬華區內江街9號"
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_QA4(event, backdata):  #處理Postback
     try:
-        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
-        message = TextSendMessage(  #傳送文字
-            text = text1
+        message = [
+            TextSendMessage(  #傳送文字
+                text = "本店位於台北市萬華區內江街9號"
+        ),
+            ImageSendMessage (
+            original_content_url = "https://imgur.com/a/cEV0kbP.png",
+            preview_image_url = "https://imgur.com/a/cEV0kbP.png"
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
