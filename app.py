@@ -65,7 +65,7 @@ def QuickReply_text_send_message():
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token,QuickReply_text_send_message)
+    line_bot_api.reply_message(event.reply_token,QuickReply_text_message)
     return 'QuickReplyText: %s' % QuickReply_text_message
 
 @handler.add(PostbackEvent)
@@ -159,7 +159,7 @@ def handle_message(event):
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token,message)
+        line_bot_api.reply_message(event.reply_token,QuickReply_text_message)
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
