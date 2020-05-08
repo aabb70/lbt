@@ -108,6 +108,7 @@ def handle_message(event):
         )
     )
     line_bot_api.push_message(user_id, QuickReply_text_message)
+    
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
