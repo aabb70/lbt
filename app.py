@@ -145,7 +145,7 @@ def handle_message(event):
 def sendBack_QA1(event, backdata):  #處理Postback
     try:
         message = TextSendMessage(  #傳送文字
-            text = "營業時間週一~週五 14:00-22:00 週六 15:00-20:00 週日與例假日不定時公休,如需面交自取可先來電(02)2388-8488洽詢。" + backdata.get('QS1')
+            text = "營業時間週一~週五 14:00-22:00 週六 15:00-20:00 週日與例假日不定時公休,如需面交自取可先來電(02)2388-8488洽詢。"
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
