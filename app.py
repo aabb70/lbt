@@ -37,6 +37,36 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@app.route("/QuickReplyText/")
+def QuickReply_text_send_message():
+    QuickReply_text_message = TextSendMessage(
+        text = '你晚餐想吃什麼？',
+        quick_reply = QuickReply(
+            items = [
+                QuickReplyButton(
+                    action = MessageAction(label = "泡麵", text = "自己煮！！"),
+                    image_url = 'http://shareboxnow.com/wp-content/uploads/2020/01/S__7938233.jpg'
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "火鍋", text = "自己買！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "牛排", text = "自己煎！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "炒麵", text = "炒起來！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "鐵板燒", text = "我不會！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, message)
+    return 'QuickReplyText: %s' % QuickReply_text_message
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -80,34 +110,6 @@ def handle_message(event):
             original_content_url = "https://cdn.discordapp.com/attachments/682086463265177652/707961786938425434/70756594_2871486492880328_5131557763402432512_n.jpg",
             preview_image_url = "https://fairmedia.tw/wp-content/uploads/20191112002764.jpg"
         )
-    elif(text=="@常見問題"):
-        message = TextSendMessage(
-        text = '你晚餐想吃什麼？',
-        quick_reply = QuickReply(
-            items = [
-                QuickReplyButton(
-                    action = MessageAction(label = "泡麵", text = "自己煮！！"),
-                    image_url = 'http://shareboxnow.com/wp-content/uploads/2020/01/S__7938233.jpg'
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "火鍋", text = "自己買！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "牛排", text = "自己煎！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "炒麵", text = "炒起來！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "鐵板燒", text = "我不會！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "生魚片", text = "該去漁港了！！")
-                )
-            ]
-        )
-    )
-    line_bot_api.reply_message(event.reply_token, message)
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
