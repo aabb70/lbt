@@ -37,37 +37,31 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-@app.route("/QuickReplyText/")
-def QuickReply_text_send_message():
-    QuickReply_text_message = TextSendMessage(
-        text = '你晚餐想吃什麼？',
-        quick_reply = QuickReply(
-            items = [
-                QuickReplyButton(
-                    action = MessageAction(label = "泡麵", text = "自己煮！！"),
-                    image_url = 'http://shareboxnow.com/wp-content/uploads/2020/01/S__7938233.jpg'
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "火鍋", text = "自己買！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "牛排", text = "自己煎！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "炒麵", text = "炒起來！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "鐵板燒", text = "我不會！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
-                )
-            ]
-        )
-    )
-    line_bot_api.reply_message(event.reply_token,QuickReply_text_message)
-    return 'QuickReplyText: %s' % QuickReply_text_message
 
+def sendQuickreply(event):  #快速選單
+    try:
+        message = TextSendMessage(
+            text='請選擇最喜歡的程式語言',
+            quick_reply=QuickReply(
+                items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="Python", text="Python")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="Java", text="Java")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="C#", text="C#")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="Basic", text="Basic")
+                    ),
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 @handler.add(PostbackEvent)
 def handle_postback(event):
     backdata = dict(parse_qsl(event.postback.data))
@@ -133,33 +127,7 @@ def handle_message(event):
             )
         )
     elif(text=="@常見問題"):
-        QuickReply_text_message = TextSendMessage(
-        text = '你晚餐想吃什麼？',
-        quick_reply = QuickReply(
-            items = [
-                QuickReplyButton(
-                    action = MessageAction(label = "泡麵", text = "自己煮！！"),
-                    image_url = 'http://shareboxnow.com/wp-content/uploads/2020/01/S__7938233.jpg'
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "火鍋", text = "自己買！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "牛排", text = "自己煎！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "炒麵", text = "炒起來！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "鐵板燒", text = "我不會！！"),
-                ),
-                QuickReplyButton(
-                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
-                )
-            ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,QuickReply_text_message)
+        message = sendQuickreply
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
