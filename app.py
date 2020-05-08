@@ -127,7 +127,7 @@ def handle_message(event):
             )
         )
     elif(text=="@常見問題"):
-        message = sendQuickreply
+        message = TextSendMessage(sendQuickreply)
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
