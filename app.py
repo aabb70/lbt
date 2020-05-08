@@ -102,8 +102,8 @@ def handle_message(event):
                     action = MessageAction(label = "鐵板燒", text = "我不會！！"),
                 ),
                 QuickReplyButton(
-                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
-                )
+                    action = MessageAction(label = "生魚片", text = "該去漁港了！！")
+                ),
             ]
         )
     )
