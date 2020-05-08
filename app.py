@@ -45,7 +45,7 @@ def sendQuickreply(event):  #快速選單
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="斷", data='action=sell&item=飲料')
+                        action=PostbackTemplateAction(label="營業時間", data='action=QA')
                     ),
                     QuickReplyButton(
                         action=MessageAction(label="Java", text="Java")
@@ -142,9 +142,38 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
-def sendBack_buy(event, backdata):  #處理Postback
+def sendBack_QA(event, backdata):  #處理Postback
     try:
-        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
+        text1 = '週一~週五 14:00-22:00 週六 15:00-20:00 週日與例假日不定時公休,如需面交自取可先來電(02)2388-8488洽詢。'
+        message = TextSendMessage(  #傳送文字
+            text = text1
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_QA2(event, backdata):  #處理Postback
+    try:
+        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
+        text1 += '\n(可將處理程式寫在此處。)'
+        message = TextSendMessage(  #傳送文字
+            text = text1
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_QA3(event, backdata):  #處理Postback
+    try:
+        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
+        text1 += '\n(可將處理程式寫在此處。)'
+        message = TextSendMessage(  #傳送文字
+            text = text1
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_QA4(event, backdata):  #處理Postback
+    try:
+        text1 = '\n(action 的值為 ' + backdata.get('action') + ')'
         text1 += '\n(可將處理程式寫在此處。)'
         message = TextSendMessage(  #傳送文字
             text = text1
