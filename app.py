@@ -102,13 +102,13 @@ def handle_message(event):
                     action = MessageAction(label = "鐵板燒", text = "我不會！！"),
                 ),
                 QuickReplyButton(
-                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
+                    action = MessageAction(label = "生魚片", text = "該去漁港了！！")
                 )
             ]
         )
     )
     line_bot_api.push_message(user_id, QuickReply_text_message)
-    
+
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
