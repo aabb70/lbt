@@ -179,9 +179,10 @@ def sendBack_QA4(event, backdata):  #處理Postback
                 text = "本店位於台北市萬華區內江街9號"
         ),
             ImageSendMessage (
-            original_content_url = "https://imgur.com/a/cEV0kbP.png",
-            preview_image_url = "https://imgur.com/a/cEV0kbP.png"
+            original_content_url = "https://i.imgur.com/h7EPOm2.png",
+            preview_image_url = "https://i.imgur.com/h7EPOm2.png"
         )
+    ]
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
