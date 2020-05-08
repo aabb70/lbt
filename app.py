@@ -132,6 +132,34 @@ def handle_message(event):
                 ]
             )
         )
+    elif(text=="@常見問題"):
+        QuickReply_text_message = TextSendMessage(
+        text = '你晚餐想吃什麼？',
+        quick_reply = QuickReply(
+            items = [
+                QuickReplyButton(
+                    action = MessageAction(label = "泡麵", text = "自己煮！！"),
+                    image_url = 'http://shareboxnow.com/wp-content/uploads/2020/01/S__7938233.jpg'
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "火鍋", text = "自己買！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "牛排", text = "自己煎！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "炒麵", text = "炒起來！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "鐵板燒", text = "我不會！！"),
+                ),
+                QuickReplyButton(
+                    action = MessageAction(label = "生魚片", text = "該去漁港了！！"),
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, QuickReply_text_message)
     elif(text=="@直播連結"):
         reply_text = HP
         message = TextSendMessage(reply_text)
