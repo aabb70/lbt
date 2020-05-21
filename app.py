@@ -110,7 +110,7 @@ def handle_message(event):
         image_url = 'https://i.imgur.com/WPIR0W5.png'
         imgwidth = 1040
         imgheight = 300
-        message = ImageSendMessage(
+        message = ImagemapSendMessage(
             base_url=image_url,
             alt_text="圖片地圖",
             base_size=BaseSize(height=imgheight,
@@ -136,7 +136,7 @@ def handle_message(event):
                     ),
                 ]
         )
-    line_bot_api.reply_message(event.reply_token,message)
+        line_bot_api.reply_message(event.reply_token,message)
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
