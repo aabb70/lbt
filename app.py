@@ -107,23 +107,43 @@ def handle_message(event):
 )
 
     elif(text=="@熱門商品"):
-        message = [
-            TextSendMessage(  #傳送文字
-                text = "推薦一款爆好吃的黑糖麥芽餅界的一姐春嬌姨，\n吃了真的有幸福的感覺不知不覺吃了好幾個，\n身旁就多出了一堆包裝袋，\n相信我！如果妳意志力不夠堅定，\n吃了真的會停不來，\n完全不黏牙一口接一口，\n真的超有罪惡感。"
-        ),
-            ImageSendMessage (
-            original_content_url = "https://reurl.cc/exp63b",
-            preview_image_url = "https://i.imgur.com/WPIR0W5.png"
+        image_url = 'https://i.imgur.com/WPIR0W5.png'
+        imgwidth = 1040
+        imgheight = 300
+        message = ImageSendMessage(
+            base_url=image_url,
+            alt_text="圖片地圖",
+            base_size=BaseSize(height=imgheight,
+                width=imgwidth),
+                actions=[
+                    MessageImagemapAction(
+                        text="你點了麥芽餅",
+                        area=ImagemapArea(
+                            x=0,
+                            y=0,
+                            width=imgwidth*0.25,
+                            height=imgheight
+                        )
+                    ),
+                    URIImagemapAction(
+                        link_url='https://reurl.cc/exp63b',
+                        area=ImagemapArea(
+                            x=imgwidth*0.75,
+                            y=0,
+                            width=imgwidth*0.25,
+                            height=imgheight
+                        )
+                    ),
+                ]
         )
-    ]
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token,message)
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/WPIR0W5.png',
+                        image_url='https://i.imgur.com/zroj90t.png',
                         action=MessageTemplateAction(
                             label='文字訊息',
                             text='https://reurl.cc/exp63b'
@@ -193,7 +213,6 @@ def sendBack_QA4(event, backdata):  #處理Postback
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
 def sendBack_sell(event, backdata):  #處理Postback
     try:
         message = TextSendMessage(  #傳送文字
