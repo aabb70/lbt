@@ -52,18 +52,9 @@ def sendImgmap(event):  #圖片地圖
                     area=ImagemapArea(
                         x=0,
                         y=0,
-                        width=imgwidth*0.5,
-                        height=imgheight
-                    ),
-                URIImagemapAction(  #開啟網頁
-                    link_uri='https://shopee.tw/i_phone_party',
-                    area=ImagemapArea(
-                        x=imgheight*0.5,
-                        y=0,
-                        width=imgwidth*0.5,
+                        width=imgwidth,
                         height=imgheight
                     )
-                )
             ]
         )
         line_bot_api.reply_message(event.reply_token, message)
