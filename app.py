@@ -109,7 +109,7 @@ def handle_message(event):
     elif(text=="@熱門商品"):
         message = [
             TextSendMessage(  #傳送文字
-                text = "推薦一款爆好吃的黑糖麥芽餅界的一姐春嬌姨，/n吃了真的有幸福的感覺不知不覺吃了好幾個，/n身旁就多出了一堆包裝袋，/n相信我！如果妳意志力不夠堅定，/n吃了真的會停不來，/n完全不黏牙一口接一口，/n真的超有罪惡感"
+                text = "推薦一款爆好吃的黑糖麥芽餅界的一姐春嬌姨，\n吃了真的有幸福的感覺不知不覺吃了好幾個，\n身旁就多出了一堆包裝袋，\n相信我！如果妳意志力不夠堅定，\n吃了真的會停不來，\n完全不黏牙一口接一口，\n真的超有罪惡感"
         ),
             ImageSendMessage (
             original_content_url = "https://i.imgur.com/WPIR0W5.png",
