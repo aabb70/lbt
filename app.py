@@ -47,21 +47,21 @@ def sendImgmap(event):  #圖片地圖
             alt_text="圖片地圖範例",
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
-                MessageImagemapAction(  #顯示文字訊息
-                    text='你點選了紅色區塊！',
-                    area=ImagemapArea(  #設定圖片範圍:左方1/4區域
+                URIImagemapAction(  #開啟網頁
+                    link_uri='http://www.e-happy.com.tw',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
-                        y=0, 
-                        width=imgwidth, 
-                        height=imgheight
+                        y=693, 
+                        width=imgwidth*0.5, 
+                        height=imgheight  
                     )
                 ),
                 URIImagemapAction(  #開啟網頁
                     link_uri='http://www.e-happy.com.tw',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
-                        x=imgwidth*0.75, 
-                        y=0, 
-                        width=imgwidth*0.25, 
+                        x=imgwidth*0.5, 
+                        y=693, 
+                        width=imgwidth*0.5, 
                         height=imgheight  
                     )
                 ),
