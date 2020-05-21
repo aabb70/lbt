@@ -120,7 +120,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/WPIR0W5.png',
                         action=MessageTemplateAction(
                             label='文字訊息',
-                            text='賣披薩'
+                            text='https://reurl.cc/exp63b'
                         )
                     ),
                     ImageCarouselColumn(
