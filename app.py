@@ -63,7 +63,7 @@ def sendImgmap(event):  #圖片地圖
                         width=imgwidth*0.5,
                         height=imgheight
                     )
-                ),
+                )
             ]
         )
         line_bot_api.reply_message(event.reply_token, message)
