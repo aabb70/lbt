@@ -108,8 +108,8 @@ def handle_message(event):
 
     elif(text=="@熱門商品"):
         message = ImageSendMessage (
-            original_content_url = "https://cdn.discordapp.com/attachments/682086463265177652/707961786938425434/70756594_2871486492880328_5131557763402432512_n.jpg",
-            preview_image_url = "https://fairmedia.tw/wp-content/uploads/20191112002764.jpg"
+            original_content_url = "https://i.imgur.com/WPIR0W5.png",
+            preview_image_url = "https://i.imgur.com/WPIR0W5.png"
         )
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
