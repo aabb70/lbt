@@ -62,6 +62,7 @@ def sendQuickreply(event):  #快速選單
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+# 接受BACKDATA訊息，回送問題回答
 @handler.add(PostbackEvent)
 def handle_postback(event):
     backdata = dict(parse_qsl(event.postback.data))
@@ -116,10 +117,10 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/4QfKuz1.png',
+                        image_url='https://i.imgur.com/WPIR0W5.png',
                         action=MessageTemplateAction(
                             label='文字訊息',
-                            text='賣披薩'
+                            text='https://shopee.tw/%E5%8F%A4%E6%97%A9%E5%91%B3-%E6%98%A5%E5%AC%8C%E5%A7%A8-%E9%BB%91%E7%B3%96%E9%BA%A5%E8%8A%BD%E9%A4%85-%E5%8F%AF%E7%B4%A0%E9%A3%9F-%E5%AE%8C%E5%85%A8%E4%B8%8D%E9%BB%8F%E7%89%99-%E4%B8%80%E5%8F%A3%E6%8E%A5%E4%B8%80%E5%8F%A3-%E5%9B%9E%E8%B3%BC%E7%8E%87100-%E5%9C%98%E8%B3%BC%E7%86%B1%E8%B3%A3%E5%95%86%E5%93%81-%E6%AD%A1%E8%BF%8E%E6%89%B9%E7%99%BC-%E9%87%8F%E5%A4%A7%E5%8F%AF%E8%AD%B0-i.14084056.4711056512'
                         )
                     ),
                     ImageCarouselColumn(
