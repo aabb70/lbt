@@ -37,6 +37,39 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+def sendImgmap(event):  #圖片地圖
+    try:
+        image_url = 'https://i.imgur.com/Yz2yzve.jpg'  #圖片位址
+        imgwidth = 1040  #原始圖片寛度一定要1040
+        imgheight = 300
+        message = ImagemapSendMessage(
+            base_url=image_url,
+            alt_text="圖片地圖範例",
+            base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
+            actions=[
+                MessageImagemapAction(  #顯示文字訊息
+                    text='你點選了紅色區塊！',
+                    area=ImagemapArea(  #設定圖片範圍:左方1/4區域
+                        x=0, 
+                        y=0, 
+                        width=imgwidth*0.25, 
+                        height=imgheight  
+                    )
+                ),
+                URIImagemapAction(  #開啟網頁
+                    link_uri='http://www.e-happy.com.tw',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
+                        x=imgwidth*0.75, 
+                        y=0, 
+                        width=imgwidth*0.25, 
+                        height=imgheight  
+                    )
+                ),
+            ]
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendQuickreply(event):  #快速選單
     try:
@@ -107,36 +140,7 @@ def handle_message(event):
 )
 
     elif(text=="@熱門商品"):
-        image_url = 'https://i.imgur.com/zroj90t.png'
-        imgwidth = 1040
-        imgheight = 300
-        message = ImagemapSendMessage(
-            base_url=image_url,
-            alt_text="圖片地圖",
-            base_size=BaseSize(height=imgheight,
-                width=imgwidth),
-                actions=[
-                    MessageImagemapAction(
-                        text="你點了麥芽餅",
-                        area=ImagemapArea(
-                            x=0,
-                            y=0,
-                            width=imgwidth*0.25,
-                            height=imgheight
-                        )
-                    ),
-                    URIImagemapAction(
-                        link_url='https://reurl.cc/exp63b',
-                        area=ImagemapArea(
-                            x=imgwidth*0.75,
-                            y=0,
-                            width=imgwidth*0.25,
-                            height=imgheight
-                        )
-                    ),
-                ]
-        )
-        line_bot_api.reply_message(event.reply_token,message)
+        sendImgmap(event)
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
