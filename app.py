@@ -48,7 +48,7 @@ def sendImgmap(event):  #圖片地圖
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
-                    link_uri='http://www.e-happy.com.tw',
+                    link_uri='https://shopee.tw/i_phone_party',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
                         y=693, 
@@ -57,7 +57,7 @@ def sendImgmap(event):  #圖片地圖
                     )
                 ),
                 URIImagemapAction(  #開啟網頁
-                    link_uri='http://www.e-happy.com.tw',
+                    link_uri='https://reurl.cc/exp63b',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=imgwidth*0.5, 
                         y=693, 
