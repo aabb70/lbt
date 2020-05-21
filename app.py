@@ -51,17 +51,17 @@ def sendImgmap(event):  #圖片地圖
                     link_uri='https://reurl.cc/exp63b',
                     area=ImagemapArea(
                         x=0,
-                        y=693,
+                        y=0,
                         width=imgwidth*0.5,
-                        height=107
+                        height=imgheight
                     ),
                 URIImagemapAction(  #開啟網頁
                     link_uri='https://shopee.tw/i_phone_party',
                     area=ImagemapArea(
-                        x=520,
-                        y=693,
+                        x=imgheight*0.5,
+                        y=0,
                         width=imgwidth*0.5,
-                        height=107
+                        height=imgheight
                     )
                 ),
             ]
