@@ -53,7 +53,7 @@ def sendImgmap(event):  #圖片地圖
                         x=0, 
                         y=693, 
                         width=imgwidth*0.5, 
-                        height=imgheight  
+                        height=157  
                     )
                 ),
                 URIImagemapAction(  #開啟網頁
@@ -62,7 +62,7 @@ def sendImgmap(event):  #圖片地圖
                         x=imgwidth*0.5, 
                         y=693, 
                         width=imgwidth*0.5, 
-                        height=imgheight  
+                        height=157  
                     )
                 ),
             ]
