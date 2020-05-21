@@ -107,7 +107,7 @@ def handle_message(event):
 )
 
     elif(text=="@熱門商品"):
-        image_url = 'https://i.imgur.com/WPIR0W5.png'
+        image_url = 'https://i.imgur.com/zroj90t.png'
         imgwidth = 1040
         imgheight = 300
         message = ImagemapSendMessage(
