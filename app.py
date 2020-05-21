@@ -50,9 +50,9 @@ def sendImgmap(event):  #圖片地圖
                 URIImagemapAction(  #開啟網頁
                     link_uri='https://reurl.cc/exp63b',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
-                        x=imgwidth, 
+                        x=0, 
                         y=0, 
-                        width=imgwidth, 
+                        width=0, 
                         height=imgheight  
                     )
                 ),
