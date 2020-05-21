@@ -39,7 +39,7 @@ def callback():
     return 'OK'
 def sendImgmap(event):  #圖片地圖
     try:
-        image_url = 'https://i.imgur.com/ca3btdb.png'  #圖片位址
+        image_url = 'https://i.imgur.com/kPVORK4.png'  #圖片位址
         imgwidth = 1040  #原始圖片寛度一定要1040
         imgheight = 850
         message = ImagemapSendMessage(
