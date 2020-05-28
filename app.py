@@ -165,7 +165,6 @@ def handle_message(event):
 
     elif(text=="@熱門商品"):
         sendImgmap(event)
-        sendImgmap2(event)
     elif(text=="洗髮精"):
         sendImgmap2(event)
     elif(text=="@促銷商品"):
