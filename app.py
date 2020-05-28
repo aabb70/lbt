@@ -42,31 +42,51 @@ def sendImgmap(event):  #圖片地圖
         image_url = 'https://i.imgur.com/kPVORK4.png'  #圖片位址
         imgwidth = 1040  #原始圖片寛度一定要1040
         imgheight = 850
-        message = ImagemapSendMessage(
-            base_url=image_url,
-            alt_text="圖片地圖範例",
-            base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
-            actions=[
-                URIImagemapAction(  #開啟網頁
-                    link_uri='https://shopee.tw/i_phone_party',
-                    area=ImagemapArea(  #右方1/4區域(藍色1)
-                        x=0, 
-                        y=693, 
-                        width=imgwidth*0.5, 
-                        height=157  
-                    )
-                ),
-                URIImagemapAction(  #開啟網頁
-                    link_uri='https://reurl.cc/exp63b',
-                    area=ImagemapArea(  #右方1/4區域(藍色1)
-                        x=imgwidth*0.5, 
-                        y=693, 
-                        width=imgwidth*0.5, 
-                        height=157  
-                    )
-                ),
-            ]
-        )
+        image_url2 = 'https://i.imgur.com/mEiVuBQ.jpg'  #圖片位址
+        imgwidth2 = 1040  #原始圖片寛度一定要1040
+        imgheight2 = 780
+        message = [ImagemapSendMessage(
+                base_url=image_url,
+                alt_text="圖片地圖範例",
+                base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
+                actions=[
+                    URIImagemapAction(  #開啟網頁
+                        link_uri='https://shopee.tw/i_phone_party',
+                        area=ImagemapArea(  #右方1/4區域(藍色1)
+                            x=0, 
+                            y=693, 
+                            width=imgwidth*0.5, 
+                            height=157  
+                        )
+                    ),
+                    URIImagemapAction(  #開啟網頁
+                        link_uri='https://reurl.cc/exp63b',
+                        area=ImagemapArea(  #右方1/4區域(藍色1)
+                            x=imgwidth*0.5, 
+                            y=693, 
+                            width=imgwidth*0.5, 
+                            height=157  
+                        )
+                    ),
+                ],
+                ImagemapSendMessage(
+                base_url=image_url2,
+                alt_text="圖片地圖範例",
+                base_size=BaseSize(height=imgheight2, width=imgwidth2),  #圖片寬及高
+                actions=[
+                    URIImagemapAction(  #開啟網頁
+                        link_uri='https://shopee.tw/product/14084056/2297932123',
+                        area=ImagemapArea(  #右方1/4區域(藍色1)
+                            x=0, 
+                            y=0, 
+                            width=imgwidth2, 
+                            height=imgheight2  
+                        )
+                    ),
+                ]
+            )
+        ]
+    )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
