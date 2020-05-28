@@ -72,7 +72,7 @@ def sendImgmap(event):  #圖片地圖
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendImgmap2(event):  #圖片地圖
     try:
-        image_url = 'https://imgur.com/mEiVuBQ'  #圖片位址
+        image_url = 'https://i.imgur.com/mEiVuBQ.jpg'  #圖片位址
         imgwidth = 1040  #原始圖片寛度一定要1040
         imgheight = 780
         message = ImagemapSendMessage(
