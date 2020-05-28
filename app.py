@@ -69,7 +69,8 @@ def sendImgmap(event):  #圖片地圖
                         height=157  
                     )
                 ),
-            ],
+            ]
+            ),
             ImagemapSendMessage(
             base_url=image_url2,
             alt_text="圖片地圖範例",
@@ -86,7 +87,6 @@ def sendImgmap(event):  #圖片地圖
                 ),
             ]
         )
-    )
     ]
         line_bot_api.reply_message(event.reply_token, message)
     except:
