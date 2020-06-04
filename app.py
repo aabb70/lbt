@@ -200,7 +200,8 @@ def handle_message(event):
                         action=PostbackTemplateAction(
                             label='回傳訊息',
                             data='action=Cookie&item=飲料'
-                        ),
+                        )
+                    ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/qaAdBkR.png',
                         action=PostbackTemplateAction(
