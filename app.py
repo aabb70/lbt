@@ -156,6 +156,8 @@ def handle_postback(event):
         sendBack_QA4(event, backdata)
     elif backdata.get('action') == 'Cookie':
         sendBack_Cookie(event, backdata)
+    elif backdata.get('action') == 'Shampoo':
+        sendBack_Shampoo(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -196,17 +198,17 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
+                        image_url='https://i.imgur.com/MrdmoXl.jpg',
                         action=PostbackTemplateAction(
                             label='回傳訊息',
                             data='action=Cookie&item=飲料'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
+                        image_url='https://i.imgur.com/TRpI6KK.png',
                         action=PostbackTemplateAction(
                             label='回傳訊息',
-                            data='action=sell&item=飲料'
+                            data='action=Shampoo&item=飲料'
                         )
                     )
                 ]
@@ -282,6 +284,19 @@ def sendBack_Cookie(event, backdata):  #處理Postback
         ),
             TextSendMessage(  #傳送文字
                 text = "https://reurl.cc/R4Qq4G"
+        )
+    ]
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_Shampoo(event, backdata):  #處理Postback
+    try:
+        message = [
+            TextSendMessage(  #傳送文字
+                text = "歡迎選購KIN卡碧絲洗髮精"
+        ),
+            TextSendMessage(  #傳送文字
+                text = "https://reurl.cc/nzRNEv"
         )
     ]
         line_bot_api.reply_message(event.reply_token, message)
