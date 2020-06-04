@@ -154,8 +154,6 @@ def handle_postback(event):
         sendBack_QA3(event, backdata)
     elif backdata.get('action') == 'QA4':
         sendBack_QA4(event, backdata)
-    elif backdata.get('action') == 'Cookie':
-        sendBack_Cookie(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -196,11 +194,12 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
-                        action=PostbackTemplateAction(
-                            label='回傳訊息',
-                            data='action=Cookie&item=飲料'
-                        ),
+                        image_url='https://i.imgur.com/zroj90t.png',
+                        action=MessageTemplateAction(
+                            label='文字訊息',
+                            text='https://reurl.cc/exp63b'
+                        )
+                    ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/qaAdBkR.png',
                         action=PostbackTemplateAction(
@@ -270,19 +269,6 @@ def sendBack_sell(event, backdata):  #處理Postback
         message = TextSendMessage(  #傳送文字
             text = '點選的是賣 ' + backdata.get('item')
         )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-def sendBack_Cookie(event, backdata):  #處理Postback
-    try:
-        message = [
-            TextSendMessage(  #傳送文字
-                text = "歡迎選購麥芽餅"
-        ),
-            TextSendMessage(  #傳送文字
-                text = "https://reurl.cc/R4Qq4G"
-        )
-    ]
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
