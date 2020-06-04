@@ -154,6 +154,10 @@ def handle_postback(event):
         sendBack_QA3(event, backdata)
     elif backdata.get('action') == 'QA4':
         sendBack_QA4(event, backdata)
+    elif backdata.get('action') == 'Cookie':
+        sendBack_Cookie(event, backdata)
+    elif backdata.get('action') == 'Shampoo':
+        sendBack_Shampoo(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -197,14 +201,14 @@ def handle_message(event):
                         image_url='https://i.imgur.com/MrdmoXl.jpg',
                         action=PostbackTemplateAction(
                             label='回傳訊息',
-                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/R4Qq4G'
+                            data='action=Cookie&item=飲料'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/TRpI6KK.png',
                         action=PostbackTemplateAction(
                             label='回傳訊息',
-                            data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                            data='action=Shampoo&item=飲料'
                         )
                     )
                 ]
@@ -266,12 +270,33 @@ def sendBack_QA4(event, backdata):  #處理Postback
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_sell(event, backdata):  #處理Postback
     try:
+        message = TextSendMessage(  #傳送文字
+            text = '點選的是賣 ' + backdata.get('item')
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_Cookie(event, backdata):  #處理Postback
+    try:
         message = [
             TextSendMessage(  #傳送文字
-                text = "歡迎選購"+ backdata.get('item')
+                text = "歡迎選購麥芽餅"
         ),
             TextSendMessage(  #傳送文字
-                text = backdata.get('URL')
+                text = "https://reurl.cc/R4Qq4G"
+        )
+    ]
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_Shampoo(event, backdata):  #處理Postback
+    try:
+        message = [
+            TextSendMessage(  #傳送文字
+                text = "歡迎選購KIN卡碧絲洗髮精"
+        ),
+            TextSendMessage(  #傳送文字
+                text = "https://reurl.cc/nzRNEv"
         )
     ]
         line_bot_api.reply_message(event.reply_token, message)
