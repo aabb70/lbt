@@ -196,14 +196,14 @@ def handle_message(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/MZlMaDT.png',
                         action=PostbackTemplateAction(
-                            label='點擊購買',
+                            label='回傳訊息',
                             data='action=sell&item=麥芽餅&URL=https://reurl.cc/R4Qq4G'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qtOiw17.png',
+                        image_url='https://i.imgur.com/TRpI6KK.png',
                         action=PostbackTemplateAction(
-                            label='點擊購買',
+                            label='回傳訊息',
                             data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
                         )
                     )
