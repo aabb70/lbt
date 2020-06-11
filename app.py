@@ -268,7 +268,7 @@ def sendBack_sell(event, backdata):  #處理Postback
     try:
         message = [
             TextSendMessage(  #傳送文字
-                text = "歡迎選購"+ backdata.get('item')
+                text = "歡迎選購"+ backdata.get('item')+",以下是購買連結。"
         ),
             TextSendMessage(  #傳送文字
                 text = backdata.get('URL')
