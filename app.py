@@ -52,7 +52,7 @@ def sendImgmap(event):  #圖片地圖
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://shopee.tw/i_phone_party',
+                    link_uri='https://shopee.tw/aabb7172',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
                         y=693, 
@@ -61,7 +61,7 @@ def sendImgmap(event):  #圖片地圖
                     )
                 ),
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://reurl.cc/exp63b',
+                    link_uri='https://reurl.cc/Qdy7OM',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=imgwidth*0.5, 
                         y=693, 
@@ -77,7 +77,7 @@ def sendImgmap(event):  #圖片地圖
             base_size=BaseSize(height=imgheight2, width=imgwidth2),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://shopee.tw/product/14084056/2297932123',
+                    link_uri='https://reurl.cc/Qdy7OM',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
                         y=0, 
@@ -102,7 +102,7 @@ def sendImgmap2(event):  #圖片地圖
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://shopee.tw/product/14084056/2297932123',
+                    link_uri='https://reurl.cc/Qdy7OM',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
                         y=0, 
@@ -164,16 +164,13 @@ def handle_message(event):
         actions=[
             URITemplateAction(
                 label='居家生活',
-                uri='https://shopee.tw/shop/14084056/search?shopCollection=15337481'
+                uri='https://shopee.tw/shop/26108934/search?originalCategoryId=73&page=0'
             ),URITemplateAction(
-                label='3C',
-                uri='https://shopee.tw/search?keyword=%E5%90%8B&shop=14084056'
+                label='香水'',
+                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027388'
             ),URITemplateAction(
                 label='美妝',
                 uri='https://shopee.tw/shop/14084056/search?shopCollection=17513740'
-            ),URITemplateAction(
-                label='零食',
-                uri='https://shopee.tw/shop/14084056/search?page=0&shopCollection=30087730'
             )
         ]
     )
