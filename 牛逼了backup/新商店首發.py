@@ -164,13 +164,13 @@ def handle_message(event):
         actions=[
             URITemplateAction(
                 label='居家生活',
-                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027391'
+                uri='https://shopee.tw/shop/26108934/search?originalCategoryId=73&page=0'
             ),URITemplateAction(
                 label='香水',
                 uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027388'
             ),URITemplateAction(
-                label='身體清潔,保養',
-                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027389'
+                label='美妝',
+                uri='https://shopee.tw/shop/14084056/search?shopCollection=17513740'
             )
         ]
     )
