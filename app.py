@@ -166,7 +166,7 @@ def handle_message(event):
                 label='居家生活',
                 uri='https://shopee.tw/shop/26108934/search?originalCategoryId=73&page=0'
             ),URITemplateAction(
-                label='香水'',
+                label='香水',
                 uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027388'
             ),URITemplateAction(
                 label='美妝',
